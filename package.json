@@ -10,9 +10,6 @@
   },
   "author": "vinpink2",
   "license": "GPL-3.0 license",
-  "overrides": {
-    "jimp": "0.22.12"
-  },
   "dependencies": {
     "baileys-pro": "latest",
     "maher-zubair-baileys": "^6.6.5",
