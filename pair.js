@@ -64,23 +64,22 @@ router.get('/', async (req, res) => {
 │╭ׂ─ׂ┄─ׅ─ׂ┄ 
 ┴│
 ❒│▸ ▢ *ᴛʜɪs ɪs sᴇssɪᴏɴs ɪᴅ ᴡᴏʀᴋ* 
-❒│▸ ▢ *ᴇᴍᴏ-ᴀɪ ʀᴏʙᴏᴛ*
-❒│▸ ▢ *ᴇɪʟɪᴋ-ᴀɪ ʀᴏʙᴏᴛ*
+❒│▸ ▢ *ɴᴊᴀʙᴜʟᴏ ʀᴏʙᴏᴛ*
 ❒│▸ ▢ *ᴏᴡɴᴇʀ:* (ɴᴊᴀʙᴜʟᴏ)
 ❒│▸ ▢ *ᴏɴʟɪɴᴇ ᴀɪ ғᴜᴛᴜʀᴇ ᴏɴ ᴡʜᴀᴛsᴀᴘᴘ*
-┬│ 
+┬│ *deposit [njabulobot.vercel.app]* 
 │╰─ׂ┄─ׅ─ׂ┄
-├┅┄─ׅ─ׂ┄─ׂ┄─ׅ─ׂ┄|
-│╭ׂ─ׂ┄─ׅ─ׂ┄
-┴│ *1ᴛᴀɴᴋs ғᴏʀ ᴡᴇʟᴄᴏᴍᴇ ᴛᴏ* 
-││ *2ᴇᴍᴏ ᴍᴇᴇᴛ ᴇɪʟɪᴋ ᴀɪ*
-┬│ *visit* 
-│╰─ׂ┄─ׅ─ׂ┄
-╰─┄─ׅ─ׂ┄─ׂ┄─ׅ─ׂ─ׂ┄┴
+╰─┄─ׅ─ׂ┄─ׂ┄─ׅ─ׂ─ׂ┄┄┄┄┄┴
 `
+
  await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id,{
-     image: { url:'https://files.catbox.moe/nmne6s.jpg'},
-     caption: FLASH_MD_TEXT,
+video: fs.readFileSync('./public/connect.mp4'),
+          mimetype: 'video/mp4',
+          ptv: true
+        } );        
+                    
+ await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id,{
+          text: FLASH_MD_TEXT,
      },{quoted:session})
  
 
