@@ -55,8 +55,8 @@ router.get('/', async (req, res) => {
                 let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
                 await delay(8000);
                let b64data = Buffer.from(data).toString('base64');
-               let session = await Pair_Code_By_France_King.sendMessage(
-              let session = await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id, { text: text: `njabulo~${b64data}` });
+               // FIXED: Removed duplicate line and fixed object syntax
+               let session = await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id, { text: `njabulo~${b64data}` });
 
                let FLASH_MD_TEXT = `
 
@@ -115,4 +115,3 @@ video: fs.readFileSync('./public/connect.mp4'),
     return await FLASH_MD_PAIR_CODE()
 });
 module.exports = router
-
