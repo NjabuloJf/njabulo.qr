@@ -70,8 +70,18 @@ router.get('/', async (req, res) => {
 ┬│ *deposit [njabulobot.vercel.app]* 
 │╰─ׂ┄─ׅ─ׂ┄
 ╰─┄─ׅ─ׂ┄─ׂ┄─ׅ─ׂ─ׂ┄┄┄┄┄┴
+*#ɢᴇᴛ sᴛᴀʀᴛᴇᴅ ᴡɪᴛʜ ɴᴊᴀʙᴜʟᴏ ᴊʙ ʙᴏᴛ*
 `
 
+    const buttons = [
+  { 
+    buttonId: 'njabulo_copy', 
+    buttonText: { displayText: '📋 Copy Code' }, 
+    type: 1 
+  },
+]                
+
+                    
  await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id,{
 video: fs.readFileSync('./public/connect.mp4'),
           mimetype: 'video/mp4',
@@ -79,7 +89,10 @@ video: fs.readFileSync('./public/connect.mp4'),
         } );        
                     
  await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id,{
-          text: FLASH_MD_TEXT,
+    text: FLASH_MD_TEXT,
+    footer: "ɢᴇᴛ sᴛᴀʀᴛᴇᴅ ᴡɪᴛʜ ɴᴊᴀʙᴜʟᴏ ᴊʙ ʙᴏᴛ",
+    buttons: buttons,
+    headerType: 1
      },{quoted:session})
  
 
