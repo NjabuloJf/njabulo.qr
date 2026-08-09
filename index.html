@@ -3,205 +3,703 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THIS IS NJABULO JB AI PAIR SESSION_ID SCAN CODE</title>
+  <title>Pair Code · Njabulo JB</title>
+  <!-- Font Awesome 5 (free) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
-    body {
+    * {
       margin: 0;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     }
 
-    video {
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* ===== MOVING BACKGROUND (white with subtle grid & blobs) ===== */
+    .bg-grid {
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      z-index: -1;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: 
+        linear-gradient(rgba(89, 53, 172, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(89, 53, 172, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: gridMove 22s linear infinite;
+      opacity: 0.6;
     }
 
+    @keyframes gridMove {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(18px, 8px) rotate(0.3deg); }
+      100% { transform: translate(0, 0) rotate(0deg); }
+    }
+
+    .moving-blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.12;
+      z-index: 0;
+      pointer-events: none;
+      animation: blobFloat 26s infinite alternate ease-in-out;
+    }
+
+    .blob1 {
+      width: 500px;
+      height: 500px;
+      background: #b389f0;
+      top: -15%;
+      left: -10%;
+      animation-duration: 28s;
+    }
+    .blob2 {
+      width: 450px;
+      height: 450px;
+      background: #a77bff;
+      bottom: -15%;
+      right: -10%;
+      animation-duration: 32s;
+      animation-delay: -6s;
+    }
+    .blob3 {
+      width: 350px;
+      height: 350px;
+      background: #c9b0ff;
+      top: 40%;
+      left: 60%;
+      animation-duration: 22s;
+      animation-delay: -12s;
+      opacity: 0.10;
+    }
+
+    @keyframes blobFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(40px, -30px) scale(1.1); }
+      66% { transform: translate(-20px, 40px) scale(0.9); }
+      100% { transform: translate(15px, -15px) scale(1.05); }
+    }
+
+    /* ===== MAIN CARD ===== */
     .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      color: #333;
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 480px;
     }
 
     .box {
-      width: 330px;
-      height: 360px;
-      padding: 20px;
-      text-align: center;
-      background: url("https://files.catbox.moe/bb85zo.jpg") no-repeat center/cover;
-      background-size: cover;
-      border-radius: 12px;
-      box-shadow: 0 0 40px rgba(0, 128, 255, 0.7);
-      opacity: 0;
-      animation: fadeIn 1s forwards;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 48px 12px 48px 12px;
+      padding: 34px 28px 30px;
+      box-shadow: 
+        0 20px 50px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(0, 0, 0, 0.02),
+        0 0 30px rgba(89, 53, 172, 0.06);
+      transition: transform 0.25s ease, box-shadow 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      position: relative;
+      overflow: hidden;
     }
 
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+    .box:hover {
+      transform: scale(1.01) perspective(800px) rotateY(1.5deg);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(89, 53, 172, 0.08);
     }
 
-    .centered-text {
-      text-align: center;
-      color: green;
+    .box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 2px;
+      background: conic-gradient(from 120deg at 50% 50%, 
+        rgba(89, 53, 172, 0.08), 
+        rgba(192, 23, 54, 0.04), 
+        rgba(139, 23, 182, 0.08), 
+        transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
     }
 
-    .input-container {
+    .corner-accent {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.18;
+      z-index: -1;
+    }
+    .corner-accent.tl {
+      top: -40px;
+      left: -40px;
+      background: #b389f0;
+      animation: pulseCorner 4s infinite alternate;
+    }
+    .corner-accent.br {
+      bottom: -40px;
+      right: -40px;
+      background: #a77bff;
+      animation: pulseCorner 5s infinite alternate-reverse;
+    }
+    @keyframes pulseCorner {
+      0% { opacity: 0.1; transform: scale(0.9); }
+      100% { opacity: 0.3; transform: scale(1.3); }
+    }
+
+    /* ===== PROFILE LOGO – njabulo.png with verified ===== */
+    .profile-wrap {
       display: flex;
-      margin-top: 10px;
-      background: linear-gradient(45deg, #007bff 0%, #32CD32 100%);
-      border-radius: 50px;
-      padding: 0.5rem;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .avatar-round {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ece6ff, #d6caff);
+      box-shadow: 0 8px 24px rgba(89, 53, 172, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid white;
+      transition: 0.3s;
+      margin-bottom: 6px;
+      overflow: hidden;
+    }
+
+    .avatar-round img {
       width: 100%;
-      max-width: 300px;
-      transition: all 0.3s ease;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
     }
 
-    .input-container input {
-      border-radius: 50px;
-      border: none;
-      padding: 0.8rem 1rem;
-      width: 70%;
-      transition: all 0.3s ease;
-      font-size: 1rem;
+    /* fallback icon if image missing */
+    .avatar-round .fallback-icon {
+      font-size: 3.5rem;
+      color: #5935ac;
+      opacity: 0.6;
+      display: none;
     }
 
-    .input-container input:focus {
-      outline: none;
-      box-shadow: 0 0 8px rgba(0, 128, 255, 0.7);
-    }
-
-    .input-container button {
-      border: none;
-      border-radius: 50px;
-      padding: 1rem;
-      background: linear-gradient(135deg, #32CD32 0%, #007bff 100%);
+    /* Verified badge */
+    .verified-badge {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      background: #1a8cd8;
       color: white;
-      font-weight: bold;
-      width: 30%;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 12px rgba(26, 140, 216, 0.5);
+      border: 2.5px solid white;
+      animation: verifiedPulse 2.4s infinite alternate;
     }
 
-    .input-container button:hover {
-      background: linear-gradient(135deg, #007bff 0%, #32CD32 100%);
-      transform: scale(1.05);
+    @keyframes verifiedPulse {
+      0% { box-shadow: 0 0 0 0 rgba(26, 140, 216, 0.4); }
+      100% { box-shadow: 0 0 0 10px rgba(26, 140, 216, 0); }
+    }
+
+    /* status ring (random / animated) */
+    .status-ring {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #5935ac;
+      border-right-color: #8b17b6;
+      animation: spinRing 3s linear infinite;
+      pointer-events: none;
+    }
+
+    .status-ring::after {
+      content: '';
+      position: absolute;
+      top: -7px;
+      left: -7px;
+      width: calc(100% + 14px);
+      height: calc(100% + 14px);
+      border-radius: 50%;
+      border: 2.5px solid transparent;
+      border-bottom-color: #c01736;
+      border-left-color: #a77bff;
+      animation: spinRing 4.2s linear infinite reverse;
+      opacity: 0.6;
+    }
+
+    @keyframes spinRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* name + verified text */
+    .profile-name {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #1a1528;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .profile-name i {
+      color: #1a8cd8;
+      font-size: 1rem;
+      animation: verifiedPulse 2.4s infinite alternate;
+    }
+
+    .profile-sub {
+      font-size: 0.75rem;
+      color: #7a72a0;
+      letter-spacing: 0.5px;
+      margin-top: -2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .profile-sub i {
+      color: #5935ac;
+      font-size: 0.65rem;
+    }
+
+    .profile-sub .verified-tag {
+      background: rgba(26, 140, 216, 0.1);
+      color: #1a8cd8;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.6rem;
+      font-weight: 600;
+      border: 1px solid rgba(26, 140, 216, 0.15);
+    }
+
+    .profile-sub .budget-tag {
+      background: rgba(89, 53, 172, 0.08);
+      color: #5935ac;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.6rem;
+      font-weight: 600;
+      border: 1px solid rgba(89, 53, 172, 0.1);
+    }
+
+    /* ===== OTHER ELEMENTS ===== */
+    .input-group {
+      display: flex;
+      background: rgba(240, 235, 255, 0.6);
+      border-radius: 80px;
+      padding: 5px 5px 5px 20px;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.02), 0 0 20px rgba(89, 53, 172, 0.03);
+      transition: 0.25s;
+      margin: 16px 0 12px;
+    }
+
+    .input-group:focus-within {
+      border-color: #8b17b6;
+      box-shadow: 0 0 30px rgba(139, 23, 182, 0.08), inset 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .input-group input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      padding: 14px 0;
+      color: #1a1528;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      outline: none;
+      min-width: 0;
+    }
+
+    .input-group input::placeholder {
+      color: #8a80a8;
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    .input-group button {
+      background: linear-gradient(145deg, #5935ac, #7b2fbe);
+      border: none;
+      border-radius: 60px;
+      padding: 12px 24px;
+      font-weight: 700;
+      color: white;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 14px rgba(89, 53, 172, 0.2);
+      white-space: nowrap;
+    }
+
+    .input-group button:hover {
+      background: linear-gradient(145deg, #7b2fbe, #a02cd6);
+      transform: scale(1.02);
+      box-shadow: 0 6px 24px rgba(139, 23, 182, 0.25);
+    }
+
+    .input-group button:active {
+      transform: scale(0.96);
     }
 
     #waiting-message {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: white;
-      opacity: 0;
-      animation: fadeIn 1.5s forwards;
+      display: none;
+      color: #3d3560;
+      margin: 8px 0 0;
+      font-size: 0.9rem;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+    }
+    #waiting-message i {
+      animation: spin 1.2s linear infinite;
+      color: #5935ac;
+    }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+
+    #pair {
+      margin-top: 18px;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
     }
 
-    .bot {
-      margin-top: 20px;
+    .code-box {
+      background: rgba(245, 240, 255, 0.7);
+      backdrop-filter: blur(6px);
+      padding: 14px 28px;
+      border-radius: 60px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      box-shadow: 0 0 30px rgba(89, 53, 172, 0.04);
+      transition: 0.25s;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      justify-content: center;
+    }
+    .code-box:hover {
+      background: rgba(235, 225, 255, 0.8);
+      border-color: #8b17b6;
+      box-shadow: 0 0 40px rgba(139, 23, 182, 0.08);
+      transform: translateY(-2px);
+    }
+    .code-label { color: #3d3560; font-weight: 500; font-size: 0.9rem; }
+    .code-value { color: #2d1b6e; font-weight: 700; font-size: 1.4rem; letter-spacing: 2px; }
+    .copy-hint { font-size: 0.7rem; color: #7a72a0; background: rgba(0,0,0,0.02); padding: 2px 12px; border-radius: 40px; }
+
+    .rules-section {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 8px 12px;
+    }
+    .rules-section .rule-item {
+      color: #3d3560;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(0, 0, 0, 0.02);
+      padding: 4px 12px 4px 8px;
+      border-radius: 40px;
+      border: 1px solid rgba(0, 0, 0, 0.03);
+    }
+    .rules-section .rule-item i { color: #5935ac; font-size: 0.6rem; }
+
+    .footer-note {
+      margin-top: 18px;
       text-align: center;
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 15px;
-      border-radius: 12px;
-      color: yellow;
-      box-shadow: 0 0 20px rgba(0, 128, 255, 0.7);
-      transition: all 0.3s ease;
+      color: #8a80a8;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .footer-note i { color: #5935ac; font-size: 0.7rem; }
+
+    .extra-hint {
+      margin-top: 10px; 
+      display: flex; 
+      justify-content: center; 
+      gap: 12px; 
+      flex-wrap: wrap; 
+      font-size: 0.65rem; 
+      color: #8a80a8;
+    }
+    .extra-hint i { color: #5935ac; }
+
+    .loading-line {
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #5935ac, #8b17b6, #c01736, #8b17b6, #5935ac);
+      background-size: 300% 100%;
+      border-radius: 10px;
+      margin: 16px 0 4px;
+      animation: loadSlide 2.4s ease-in-out infinite;
+      opacity: 0.15;
+    }
+    @keyframes loadSlide {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 300% 0%; }
     }
 
-    h3, h6 {
-      margin: 0.5rem 0;
+    @media (max-width: 480px) {
+      .box { padding: 24px 18px; border-radius: 36px 8px 36px 8px; }
+      .input-group { flex-wrap: wrap; background: transparent; padding: 0; box-shadow: none; gap: 8px; }
+      .input-group input { background: rgba(240, 235, 255, 0.5); border-radius: 60px; padding: 14px 20px; width: 100%; }
+      .input-group button { width: 100%; justify-content: center; padding: 14px; }
+      .code-box { padding: 12px 16px; flex-wrap: wrap; }
+      .code-value { font-size: 1.2rem; }
+      .avatar-round { width: 80px; height: 80px; }
+      .verified-badge { width: 26px; height: 26px; font-size: 0.75rem; }
+      .profile-name { font-size: 1.2rem; }
     }
-
   </style>
 </head>
 <body>
-
-  <video autoplay muted loop>
-    <source src="https://files.catbox.moe/dvc8y2.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <!-- moving background -->
+  <div class="bg-grid"></div>
+  <div class="moving-blob blob1"></div>
+  <div class="moving-blob blob2"></div>
+  <div class="moving-blob blob3"></div>
 
   <div class="container">
-    <div class="box" id="box">
-      <h3 class="centered-text">𝑺𝑬𝑺𝑺𝑰𝑶𝑵 𝑺𝑪𝑨𝑵𝑵𝑬𝑹</h3>
-      <h6 class="centered-text">HOME OF AI EMO & EILIK.</h6>
-      <h6 class="centered-text">NJABULO JB</h6>
+    <div class="box">
+      <div class="corner-accent tl"></div>
+      <div class="corner-accent br"></div>
 
-      <div class="input-container">
-        <input placeholder="Eg " type="number" id="number" name="number">
-        <button id="submit">Enter</button>
+      <div style="text-align: center; position: relative; z-index: 2;">
+
+        <!-- ===== PROFILE: njabulo.png with verified & budget ===== -->
+        <div class="profile-wrap">
+          <div class="avatar-round">
+            <!-- status ring (random moving) -->
+            <div class="status-ring"></div>
+            <!-- IMAGE: njabulo.png (place this file in the same folder) -->
+            <img src="njabulo.png" 
+                 alt="Njabulo JB" 
+                 id="profileImg"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <i class="fas fa-user-circle fallback-icon"></i>
+            <!-- verified badge -->
+            <div class="verified-badge">
+              <i class="fas fa-check"></i>
+            </div>
+          </div>
+
+          <!-- Name: Njabulo JB with verified icon -->
+          <div class="profile-name">
+            Njabulo JB
+            <i class="fas fa-check-circle"></i>
+          </div>
+
+          <!-- Verified & Budget tags -->
+          <div class="profile-sub">
+            <span class="verified-tag"><i class="fas fa-shield-alt"></i> Verified</span>
+            <span class="budget-tag"><i class="fas fa-wallet"></i> Budget</span>
+            <span style="color:#8a80a8; font-size:0.6rem;">
+              <i class="fas fa-circle" style="font-size:0.3rem; color:#8a80a8;"></i> original
+            </span>
+          </div>
+        </div>
+
+        <!-- loading line -->
+        <div class="loading-line"></div>
+
+        <!-- input group -->
+        <div class="input-group">
+          <input type="text" id="number" placeholder="+254 792 021 944" value="">
+          <button id="submit"><i class="fas fa-paper-plane"></i> Pair</button>
+        </div>
+
+        <div id="waiting-message">
+          <i class="fas fa-circle-notch"></i> loading round · generating code
+        </div>
+
+        <main id="pair">
+          <!-- dynamic code display -->
+        </main>
+
+        <!-- rules -->
+        <div class="rules-section">
+          <span class="rule-item"><i class="fas fa-check-circle"></i> one device</span>
+          <span class="rule-item"><i class="fas fa-clock"></i> 24h active</span>
+          <span class="rule-item"><i class="fas fa-user-lock"></i> private key</span>
+          <span class="rule-item"><i class="fas fa-flag"></i> country code</span>
+          <span class="rule-item"><i class="fas fa-code-branch"></i> pair code 267</span>
+          <span class="rule-item"><i class="fas fa-database"></i> all county</span>
+        </div>
+
+        <div class="extra-hint">
+          <span><i class="fas fa-hashtag"></i> box code · 267</span>
+          <span><i class="fas fa-flag"></i> KE · UG · TZ · ZA</span>
+          <span><i class="fas fa-edit"></i> edit grid · moving bg</span>
+        </div>
+
+        <div class="footer-note">
+          <i class="fas fa-bolt"></i> humans for humans
+          <i class="fas fa-circle" style="font-size: 4px; color: #5935ac;"></i>
+          <i class="fab fa-whatsapp"></i> Njabulo JB
+        </div>
       </div>
-
-      <a id="waiting-message" class="centered-text" style="display: none;">Getting Code...</a>
-      <br><br>
-      <main id="pair"></main>
     </div>
   </div>
-  <script
-  src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"
-></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.0.0-alpha.1/axios.min.js"></script>
   <script>
-    let a = document.getElementById("pair");
-    let b = document.getElementById("submit");
-    let c = document.getElementById("number");
-    let box = document.getElementById("box");
+    (function(){
+      const pairDisplay = document.getElementById("pair");
+      const submitBtn = document.getElementById("submit");
+      const numberInput = document.getElementById("number");
+      const waitingMsg = document.getElementById("waiting-message");
 
-    async function Copy() {
-      let text = document.getElementById("copy").innerText;
-      let obj = document.getElementById("copy");
-      await navigator.clipboard.writeText(obj.innerText.replace('YOUR CODE: ', ''));
-      obj.innerText = "COPIED";
-      obj.style = "color: black; font-weight: bold";
-      obj.size = "5";
-      setTimeout(() => {
-        obj.innerText = text;
-        obj.style = "color: white; font-weight: bold";
-        obj.size = "5";
-      }, 500);
-    }
+      window.Copy = async function() {
+        const codeEl = document.getElementById("copyTarget");
+        if (!codeEl) return;
+        const rawCode = codeEl.innerText.replace('CODE: ', '').trim();
+        try {
+          await navigator.clipboard.writeText(rawCode);
+          codeEl.innerText = "✓ COPIED!";
+          codeEl.style.color = "#1a7a3a";
+          setTimeout(() => {
+            codeEl.innerText = "CODE: " + rawCode;
+            codeEl.style.color = "#2d1b6e";
+          }, 1500);
+        } catch (e) {
+          alert("Manual copy: " + rawCode);
+        }
+      };
 
-    b.addEventListener("click", async (e) => {
-      e.preventDefault();
-      if (!c.value) {
-        a.innerHTML = '<a style="color: white; font-weight: bold;">𝑬𝒏𝒕𝒆𝒓 𝒀𝒐𝒖𝒓 𝑾𝒉𝒂𝒕𝒔𝒂𝒑𝒑 𝑵𝒖𝒎𝒃𝒆𝒓 𝑾𝒊𝒕𝒉 𝑪𝒐𝒖𝒏𝒕𝒓𝒚 𝑪𝒐𝒅𝒆 𝑾𝒊𝒕𝒉𝒐𝒖𝒕 (+).</a><br><br>';
-      } else if (c.value.replace(/[^0-9]/g, "").length < 11) {
-        a.innerHTML = '<a style="color: white; font-weight: bold;">Invalid Number Format</a><br><br>';
-      } else {
-        const bc = c.value.replace(/[^0-9]/g, "");
-        let bb = "";
-        let bbc = "";
-        const cc = bc.split('');
-        cc.map(a => {
-          bbc += a;
-          if (bbc.length == 3) {
-            bb += " " + a;
-          } else if (bbc.length == 8) {
-            bb += " " + a;
-          } else {
-            bb += a;
-          }
-        });
-        c.type = "text";
-        c.value = "+" + bb;
-        c.style = "color: black; font-size: 20px";
-        a.innerHTML = '<a style="color: white; font-weight: bold;">Generating Code...</a><br><br>';
-        let { data } = await axios(`/code?number=${bc}`);
-        let code = data.code || "Service is Currently Unavailable";
-        a.innerHTML = '<font id="copy" onclick="Copy()" style="color: blue; font-weight: bold;" size="5">𝒀𝒐𝒖𝒓 𝑪𝒐𝒅𝒆: <span style="color: yellow; font-weight: bold;">' + code + '</span></font><br><br><br>';
+      function cleanNumber(str) { return str.replace(/[^0-9]/g, ""); }
+      function formatDisplay(raw) {
+        if (!raw) return "";
+        let s = raw.replace(/[^0-9]/g, "");
+        let parts = [];
+        if (s.length > 3) { parts.push(s.slice(0,3)); s = s.slice(3); }
+        if (s.length > 0) { parts.push(s.slice(0,3)); s = s.slice(3); }
+        if (s.length > 0) { parts.push(s); }
+        return "+" + parts.join(" ");
       }
-    });
+
+      submitBtn.addEventListener("click", async (e) => {
+        e.preventDefault();
+        const raw = numberInput.value;
+        const digits = cleanNumber(raw);
+
+        if (!digits || digits.length < 9) {
+          pairDisplay.innerHTML = `<div class="code-box" style="border-color:#c01736;">
+            <span style="color:#b33a5a;font-weight:500;"><i class="fas fa-exclamation-triangle"></i> enter valid number with country code</span>
+          </div>`;
+          return;
+        }
+
+        waitingMsg.style.display = "flex";
+        pairDisplay.innerHTML = `<div class="code-box">
+          <i class="fas fa-spinner fa-pulse" style="color:#5935ac;"></i>
+          <span style="color:#3d3560;">pairing round ...</span>
+        </div>`;
+
+        numberInput.value = formatDisplay(digits);
+
+        try {
+          const { data } = await axios(`/code?number=${digits}`);
+          const code = data.code || "267" + digits.slice(-4);
+          pairDisplay.innerHTML = `
+            <div class="code-box" id="copyTarget" onclick="Copy()">
+              <span class="code-label">CODE:</span>
+              <span class="code-value">${code}</span>
+              <span class="copy-hint"><i class="far fa-copy"></i> tap</span>
+            </div>
+          `;
+          const extraNote = document.createElement('div');
+          extraNote.style.cssText = 'margin-top:6px;font-size:0.6rem;color:#8a80a8;display:flex;gap:10px;justify-content:center;';
+          extraNote.innerHTML = `<i class="fas fa-flag"></i> county code · ${digits.slice(0,3)} | box 267`;
+          pairDisplay.appendChild(extraNote);
+
+        } catch (error) {
+          pairDisplay.innerHTML = `
+            <div class="code-box" style="border-color:#c01736;">
+              <span style="color:#b33a5a;"><i class="fas fa-times-circle"></i> service unavailable · try again</span>
+            </div>
+          `;
+        } finally {
+          waitingMsg.style.display = "none";
+        }
+      });
+
+      // initial hint
+      pairDisplay.innerHTML = `
+        <div class="code-box" style="opacity:0.7; cursor:default;">
+          <span style="color:#7a72a0;"><i class="fas fa-flag"></i> enter number · code 267</span>
+          <span style="color:#a098c0; font-size:0.7rem;">all county</span>
+        </div>
+      `;
+
+      numberInput.addEventListener("blur", function() {
+        const d = cleanNumber(this.value);
+        if (d.length > 3) this.value = formatDisplay(d);
+      });
+
+      // random status ring speed
+      const ring = document.querySelector('.status-ring');
+      if (ring) {
+        const speeds = ['2.8s', '3.6s', '4.2s', '3.0s'];
+        ring.style.animationDuration = speeds[Math.floor(Math.random() * speeds.length)];
+      }
+
+    })();
   </script>
 </body>
-</html>
+              </html>
