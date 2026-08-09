@@ -91,7 +91,7 @@ video: fs.readFileSync('./public/connect.mp4'),
                     
  await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id,{
     image: { url: videoUrl },
-     text: FLASH_MD_TEXT,
+     caption: FLASH_MD_TEXT,
     footer: "ɢᴇᴛ sᴛᴀʀᴛᴇᴅ ᴡɪᴛʜ ɴᴊᴀʙᴜʟᴏ ᴊʙ ʙᴏᴛ",
     buttons: buttons,
     headerType: 1
