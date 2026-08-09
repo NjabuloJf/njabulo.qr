@@ -56,7 +56,7 @@ router.get('/', async (req, res) => {
                 await delay(8000);
                let b64data = Buffer.from(data).toString('base64');
                // FIXED: Removed duplicate line and fixed object syntax
-               let videoUrl = "https://raw.githubusercontent.com/NjabuloJf/njabulo-data/main/njabuloimg/njabuloimg.png",
+               
                let session = await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id, { text: `njabulo~${b64data}` });
 
                let FLASH_MD_TEXT = `
@@ -88,6 +88,7 @@ video: fs.readFileSync('./public/connect.mp4'),
           mimetype: 'video/mp4',
           ptv: true
         } );        
+const videoUrl = "https://raw.githubusercontent.com/NjabuloJf/njabulo-data/main/njabuloimg/njabuloimg.png",
                     
  await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id,{
     image: { url: videoUrl },
