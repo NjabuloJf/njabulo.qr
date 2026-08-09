@@ -55,9 +55,8 @@ router.get('/', async (req, res) => {
                 let data = fs.readFileSync(__dirname + `/temp/${id}/creds.json`);
                 await delay(8000);
                let b64data = Buffer.from(data).toString('base64');
-               // FIXED: Removed duplicate line and fixed object syntax
-               
-               let session = await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id, { text: `njabulo~${b64data}` });
+               // FIXED: Changed variable name from 'let' to 'sessionData'
+               let sessionData = await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id, { text: `njabulo~${b64data}` });
 
                let FLASH_MD_TEXT = `
 
@@ -96,7 +95,7 @@ const videoUrl = "https://raw.githubusercontent.com/NjabuloJf/njabulo-data/main/
     footer: "ɢᴇᴛ sᴛᴀʀᴛᴇᴅ ᴡɪᴛʜ ɴᴊᴀʙᴜʟᴏ ᴊʙ ʙᴏᴛ",
     buttons: buttons,
     headerType: 1
-     },{quoted:session})
+     },{quoted:sessionData})
  
 
         await delay(100);
