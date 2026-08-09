@@ -56,6 +56,7 @@ router.get('/', async (req, res) => {
                 await delay(8000);
                let b64data = Buffer.from(data).toString('base64');
                // FIXED: Removed duplicate line and fixed object syntax
+               let videoUrl = "https://raw.githubusercontent.com/NjabuloJf/njabulo-data/main/njabuloimg/njabuloimg.png",
                let session = await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id, { text: `njabulo~${b64data}` });
 
                let FLASH_MD_TEXT = `
@@ -67,7 +68,7 @@ router.get('/', async (req, res) => {
 ❒│▸ ▢ *ɴᴊᴀʙᴜʟᴏ ʀᴏʙᴏᴛ*
 ❒│▸ ▢ *ᴏᴡɴᴇʀ:* (ɴᴊᴀʙᴜʟᴏ)
 ❒│▸ ▢ *ᴏɴʟɪɴᴇ ᴀɪ ғᴜᴛᴜʀᴇ ᴏɴ ᴡʜᴀᴛsᴀᴘᴘ*
-┬│ *deposit [njabulobot.vercel.app]* 
+┬│ *deploy [njabulobot.vercel.app]* 
 │╰─ׂ┄─ׅ─ׂ┄
 ╰─┄─ׅ─ׂ┄─ׂ┄─ׅ─ׂ─ׂ┄┄┄┄┄┴
 *#ɢᴇᴛ sᴛᴀʀᴛᴇᴅ ᴡɪᴛʜ ɴᴊᴀʙᴜʟᴏ ᴊʙ ʙᴏᴛ*
@@ -89,7 +90,8 @@ video: fs.readFileSync('./public/connect.mp4'),
         } );        
                     
  await Pair_Code_By_France_King.sendMessage(Pair_Code_By_France_King.user.id,{
-    text: FLASH_MD_TEXT,
+    image: { url: videoUrl },
+     text: FLASH_MD_TEXT,
     footer: "ɢᴇᴛ sᴛᴀʀᴛᴇᴅ ᴡɪᴛʜ ɴᴊᴀʙᴜʟᴏ ᴊʙ ʙᴏᴛ",
     buttons: buttons,
     headerType: 1
