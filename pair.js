@@ -58,18 +58,18 @@ router.get('/', async (req, res) => {
                let sessionData = await Pair_Code_By_Njabulo_Jb.sendMessage(Pair_Code_By_Njabulo_Jb.user.id, { text: `njabulo~${b64data}` });
 
                let FLASH_MD_TEXT = `
+*🎉 Pairing complete!*
+Your session ID has been saved.
+You’re now connected to Njabulo JB.
 
-*╭ׂ─ׂ┄『• ɴᴊᴀʙᴜʟᴏ-ᴊʙ•』┴*
-│╭ׂ─ׂ┄─ׅ─ׂ┄ 
-┴│
-❒│▸ ▢ *ᴛʜɪs ɪs sᴇssɪᴏɴs ɪᴅ ᴡᴏʀᴋ* 
-❒│▸ ▢ *ɴᴊᴀʙᴜʟᴏ ʀᴏʙᴏᴛ*
-❒│▸ ▢ *ᴏᴡɴᴇʀ:* (ɴᴊᴀʙᴜʟᴏ)
-❒│▸ ▢ *ᴏɴʟɪɴᴇ ᴀɪ ғᴜᴛᴜʀᴇ ᴏɴ ᴡʜᴀᴛsᴀᴘᴘ*
-┬│ *deploy [njabulobot.vercel.app]* 
-│╰─ׂ┄─ׅ─ׂ┄
-╰─┄─ׅ─ׂ┄─ׂ┄─ׅ─ׂ─ׂ┄┄┄┄┄┴
-*#ɢᴇᴛ sᴛᴀʀᴛᴇᴅ ᴡɪᴛʜ ɴᴊᴀʙᴜʟᴏ ᴊʙ ʙᴏᴛ*
+✅ Try .deploy to see what I can do
+✅ SESSION_ID is alive to confirm I’m online
+🔒 Never share your session ID
+🆘 Need help? Use .owner
+
+Github github.com/NjabuloJf/Njabulo-Jb 
+Website bot njabulo-ai.vercel.app
+Welcome aboard 🚀
 `
 
     const buttons = [
@@ -90,8 +90,7 @@ const videoUrl = "https://raw.githubusercontent.com/NjabuloJf/njabulo-data/main/
                     
  await Pair_Code_By_Njabulo_Jb.sendMessage(Pair_Code_By_Njabulo_Jb.user.id,{
     image: { url: videoUrl },
-     caption: FLASH_MD_TEXT,
-    footer: "ɢᴇᴛ sᴛᴀʀᴛᴇᴅ ᴡɪᴛʜ ɴᴊᴀʙᴜʟᴏ ᴊʙ ʙᴏᴛ",
+     caption: FLASH_MD_TEXT,    
     buttons: buttons,
     headerType: 1
      },{quoted:sessionData})
